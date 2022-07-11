@@ -15,9 +15,8 @@
     border: 1px solid var(--gray-700);
     border-radius: 8px;
     flex: 1;
-}
-.input::placeholder{
     padding-left: 1rem;
+
 }
 .submit {
     background-color: var(--blueDark);
