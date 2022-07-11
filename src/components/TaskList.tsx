@@ -1,5 +1,6 @@
-import {Check, Trash } from 'phosphor-react'
+import {Check, Trash, ClipboardText } from 'phosphor-react'
 import React, { MouseEventHandler } from 'react'
+
 
 import styles from './TaskList.module.css'
 interface TaskListProps {
@@ -26,7 +27,7 @@ export function TaskList({ tasks, finishTask, deleteTask }: TaskListProps){
     return(
         <>
             <ul className={styles.container}>
-            {tasks.map((t,i)=> <li className={styles.task} key={i}>
+            {tasks.length == 0 ? <div className={styles.notasks}><ClipboardText size={56}></ClipboardText><p>Você ainda não tem tarefas cadastradas</p><p>Crie tarefas e organize seus itens a fazer</p></div> : tasks.map((t,i)=> <li className={styles.task} key={i}>
                 <div onClick={handleCompleteTask} id={i.toString()} className={ t.isDone ? styles.radio + ' '+ styles.radioDone : styles.radio + ' '+ styles.radioToDo }>
                     <Check size={16} className={t.isDone ? styles.done : styles.todo }/>
                 </div>
