@@ -1,0 +1,33 @@
+.form {
+    height: 3.375rem;
+    display: flex;
+    position: relative;
+    top: -1.7rem;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 40rem;
+    margin: auto;
+}
+.input {
+    
+    background-color: var(--gray-500);
+    color: var(--gray-300);
+    border: 1px solid var(--gray-700);
+    border-radius: 8px;
+    flex: 1;
+}
+.input::placeholder{
+    padding-left: 1rem;
+}
+.submit {
+    background-color: var(--blueDark);
+    height: 3.375rem;
+    width: 5.625rem;
+    color: var(--gray-100);
+    border-radius: 8px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.125rem;
+}
