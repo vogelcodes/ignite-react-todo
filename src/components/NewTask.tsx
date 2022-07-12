@@ -2,6 +2,7 @@ import styles from './NewTask.module.css'
 import {PlusCircle} from 'phosphor-react'
 import { ChangeEvent, ChangeEventHandler, FormEvent, FormEventHandler, useState } from 'react'
 
+
 interface NewTaskProps {
     addNewTask: Function 
 } 

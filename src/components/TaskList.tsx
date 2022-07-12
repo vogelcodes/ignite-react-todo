@@ -9,6 +9,7 @@ interface TaskListProps {
     deleteTask: Function
 }
 interface task {
+    id: string,
     title: string,
     isDone: boolean,
 }
@@ -27,12 +28,17 @@ export function TaskList({ tasks, finishTask, deleteTask }: TaskListProps){
     return(
         <>
             <ul className={styles.container}>
-            {tasks.length == 0 ? <div className={styles.notasks}><ClipboardText size={56}></ClipboardText><p>Você ainda não tem tarefas cadastradas</p><p>Crie tarefas e organize seus itens a fazer</p></div> : tasks.map((t,i)=> <li className={styles.task} key={i}>
-                <div onClick={handleCompleteTask} id={i.toString()} className={ t.isDone ? styles.radio + ' '+ styles.radioDone : styles.radio + ' '+ styles.radioToDo }>
+            {tasks.length == 0 ? 
+                <div className={styles.notasks}>
+                    <ClipboardText size={56}></ClipboardText>
+                    <p>Você ainda não tem tarefas cadastradas</p>
+                    <p>Crie tarefas e organize seus itens a fazer</p></div>
+            :   tasks.map((t)=> <li className={styles.task} key={t.id}>
+                <div onClick={handleCompleteTask} id={t.id} className={ t.isDone ? styles.radio + ' '+ styles.radioDone : styles.radio + ' '+ styles.radioToDo }>
                     <Check size={16} className={t.isDone ? styles.done : styles.todo }/>
                 </div>
                 <div className={t.isDone ? styles.title + ' ' + styles.strike : styles.title}>{t.title}</div>
-                <div onClick={handleDeleteTask} id={i.toString()}> <Trash></Trash></div>
+                <div onClick={handleDeleteTask} id={t.id}> <Trash></Trash></div>
             </li>)}
             </ul>
         </>
